@@ -1,0 +1,55 @@
+unit Projeto02;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Datasnap.DBClient, Vcl.DBCtrls,
+  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TForm1 = class(TForm)
+    dsPrograma: TClientDataSet;
+    dsSource: TDataSource;
+    dsProgramaid: TIntegerField;
+    dsProgramaNome: TStringField;
+    dsProgramavalor: TCurrencyField;
+    dsProgramaQuantidade: TFloatField;
+    dsProgramaTotal: TCurrencyField;
+    dsProgramaProdutos: TAggregateField;
+    Panel1: TPanel;
+    grp1: TGroupBox;
+    lblValorFiltro: TLabel;
+    edtFiltro: TEdit;
+    btnAdicionar: TButton;
+    btnRemover: TButton;
+    dbgrd1: TDBGrid;
+    dbnvgr1: TDBNavigator;
+    btnLimpar: TButton;
+    btnIndexar: TButton;
+    btnInNome: TButton;
+    grp2: TGroupBox;
+    grp3: TGroupBox;
+    grp4: TGroupBox;
+    edt1: TEdit;
+    edt2: TEdit;
+    edt3: TEdit;
+    btnFindkey: TButton;
+    btnLocate: TButton;
+    btnPercorrer: TButton;
+    lbl1: TLabel;
+    edt4: TEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+end.
