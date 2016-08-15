@@ -1,0 +1,96 @@
+unit UnitT1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Datasnap.DBClient, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, Vcl.DBCtrls, Vcl.Mask, Vcl.ExtCtrls;
+
+type
+  TForm1 = class(TForm)
+    dsClienteDataSet: TClientDataSet;
+    DataSource: TDataSource;
+    dsClienteDataSetCodigo: TIntegerField;
+    dsClienteDataSetDescricao: TStringField;
+    dsClienteDataSetUnidade: TStringField;
+    dsClienteDataSetFornecedor: TStringField;
+    dsClienteDataSetData: TDateField;
+    dsClienteDataSetQuantidade: TFloatField;
+    dsClienteDataSetUnitario: TCurrencyField;
+    dsClienteDataSetTotal: TCurrencyField;
+    dsClienteDataSetEstoqueQtd: TAggregateField;
+    dsClienteDataSetEstoqueVlr: TAggregateField;
+    pnl1: TPanel;
+    dbnvgr1: TDBNavigator;
+    lblCodigo: TLabel;
+    lblData: TLabel;
+    lblDescricao: TLabel;
+    lblFornecedor: TLabel;
+    lblUnidade: TLabel;
+    lblQuantidade: TLabel;
+    lblUnitario: TLabel;
+    lblTotal: TLabel;
+    dbedtCodigo: TDBEdit;
+    dbedtDescricao: TDBEdit;
+    dbedtData: TDBEdit;
+    dbedtFornecedor: TDBEdit;
+    dbedtQuantidade: TDBEdit;
+    dbedtUnitario: TDBEdit;
+    dbedtUnidade: TDBEdit;
+    dbedtTotal: TDBEdit;
+    pnl2: TPanel;
+    lblPesquisa: TLabel;
+    lblCampo: TLabel;
+    lblAcao: TLabel;
+    lblValor: TLabel;
+    edtValor: TEdit;
+    dbcbb1: TDBComboBox;
+    dbcbb2: TDBComboBox;
+    btnExecutar: TButton;
+    dbgrd1: TDBGrid;
+    procedure dsClienteDataSetCalcFields(DataSet: TDataSet);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.dsClienteDataSetCalcFields(DataSet: TDataSet);
+begin
+if (not dsClienteDataSet.FieldByName('Valor').IsNull) and
+ (not dsClienteDataSet.FieldByName('Quantidade').IsNull) then
+ begin
+   dsClienteDataSet.FieldByName('Total').Value :=
+   dsClienteDataSet.FieldByName('Valor').Value * dsClienteDataSet.FieldByName('Quantidade')
+   .Value;
+ end;
+
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+
+const
+cDataFile = 'Dados.xml';
+
+begin
+
+ dsClienteDataSet.FileName := ExtractFilePath(Application.ExeName)  + cDataFile;
+ if FileExists(dsClienteDataSet.FileName) then
+ dsClienteDataSet.Open
+ else
+ dsClienteDataSet.CreateDataSet;
+
+
+end;
+
+
+end.

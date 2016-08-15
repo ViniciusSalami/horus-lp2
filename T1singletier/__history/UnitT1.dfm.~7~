@@ -1,0 +1,73 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 296
+  ClientWidth = 551
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object dsClienteDataSet: TClientDataSet
+    Aggregates = <>
+    AggregatesActive = True
+    Params = <>
+    OnCalcFields = dsClienteDataSetCalcFields
+    Left = 200
+    Top = 152
+    object dsClienteDataSetCodigo: TIntegerField
+      FieldName = 'Codigo'
+    end
+    object dsClienteDataSetDescricao: TStringField
+      FieldName = 'Descricao'
+      Size = 50
+    end
+    object dsClienteDataSetUnidade: TStringField
+      FieldName = 'Unidade'
+      Size = 2
+    end
+    object dsClienteDataSetFornecedor: TStringField
+      FieldName = 'Fornecedor'
+      Size = 50
+    end
+    object dsClienteDataSetData: TDateField
+      FieldName = 'Data'
+    end
+    object dsClienteDataSetQuantidade: TFloatField
+      FieldName = 'Quantidade'
+    end
+    object dsClienteDataSetUnitario: TCurrencyField
+      FieldName = 'Unitario'
+    end
+    object dsClienteDataSetTotal: TCurrencyField
+      FieldKind = fkCalculated
+      FieldName = 'Total'
+      Calculated = True
+    end
+    object dsClienteDataSetEstoqueQtd: TAggregateField
+      FieldName = 'EstoqueQtd'
+      Visible = True
+      Active = True
+      DisplayName = ''
+      Expression = 'SUM(Quantidade)'
+    end
+    object dsClienteDataSetEstoqueVlr: TAggregateField
+      FieldName = 'EstoqueVlr'
+      Visible = True
+      Active = True
+      DisplayName = ''
+      Expression = 'SUM(Quantidade*Unitario)'
+    end
+  end
+  object DataSource: TDataSource
+    DataSet = dsClienteDataSet
+    Left = 272
+    Top = 152
+  end
+end
