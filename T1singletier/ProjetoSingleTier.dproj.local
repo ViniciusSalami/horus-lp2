@@ -6,8 +6,8 @@
     <Transaction>2016/06/25 15:04:45.000.905,=C:\Users\USUARIO\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2016/08/10 20:20:05.000.382,=C:\Users\USUARIO\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2016/08/15 15:25:33.000.964,=C:\Users\USUARIO\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2016/08/15 15:48:43.000.470,C:\Users\USUARIO\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\LP2\horus-lp2\T1singletier\UnitT1.pas</Transaction>
-    <Transaction>2016/08/15 15:48:43.000.470,C:\Users\USUARIO\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\LP2\horus-lp2\T1singletier\UnitT1.dfm</Transaction>
-    <Transaction>2016/08/15 15:49:00.000.800,C:\Users\USUARIO\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\LP2\horus-lp2\T1singletier\ProjetoSingleTier.dproj</Transaction>
+    <Transaction>2016/08/15 15:48:43.000.470,C:\LP2\horus-lp2\T1singletier\UnitT1.dfm=C:\Users\USUARIO\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2016/08/15 15:48:43.000.470,C:\LP2\horus-lp2\T1singletier\UnitT1.pas=C:\Users\USUARIO\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2016/08/15 15:49:00.000.800,C:\LP2\horus-lp2\T1singletier\ProjetoSingleTier.dproj=C:\Users\USUARIO\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
   </Transactions>
 </BorlandProject>

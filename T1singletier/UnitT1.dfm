@@ -82,6 +82,8 @@ object Controle: TControle
       Top = 27
       Width = 121
       Height = 21
+      DataField = 'Codigo'
+      DataSource = DataSource
       TabOrder = 0
     end
     object dbedtDescricao: TDBEdit
@@ -89,6 +91,8 @@ object Controle: TControle
       Top = 27
       Width = 532
       Height = 21
+      DataField = 'Descricao'
+      DataSource = DataSource
       TabOrder = 1
     end
     object dbedtData: TDBEdit
@@ -96,6 +100,8 @@ object Controle: TControle
       Top = 69
       Width = 121
       Height = 21
+      DataField = 'Data'
+      DataSource = DataSource
       TabOrder = 2
     end
     object dbedtFornecedor: TDBEdit
@@ -103,6 +109,8 @@ object Controle: TControle
       Top = 69
       Width = 278
       Height = 21
+      DataField = 'Fornecedor'
+      DataSource = DataSource
       TabOrder = 3
     end
     object dbedtQuantidade: TDBEdit
@@ -110,6 +118,8 @@ object Controle: TControle
       Top = 69
       Width = 121
       Height = 21
+      DataField = 'Quantidade'
+      DataSource = DataSource
       TabOrder = 4
     end
     object dbedtUnitario: TDBEdit
@@ -117,6 +127,8 @@ object Controle: TControle
       Top = 69
       Width = 121
       Height = 21
+      DataField = 'Unitario'
+      DataSource = DataSource
       TabOrder = 5
     end
     object dbedtUnidade: TDBEdit
@@ -124,6 +136,8 @@ object Controle: TControle
       Top = 27
       Width = 121
       Height = 21
+      DataField = 'Unidade'
+      DataSource = DataSource
       TabOrder = 6
     end
     object dbedtTotal: TDBEdit
@@ -131,6 +145,8 @@ object Controle: TControle
       Top = 69
       Width = 121
       Height = 21
+      DataField = 'Total'
+      DataSource = DataSource
       TabOrder = 7
     end
   end
@@ -139,6 +155,7 @@ object Controle: TControle
     Top = 1
     Width = 240
     Height = 25
+    DataSource = DataSource
     TabOrder = 1
   end
   object pnl2: TPanel
@@ -181,21 +198,8 @@ object Controle: TControle
       Top = 38
       Width = 233
       Height = 21
+      Enabled = False
       TabOrder = 0
-    end
-    object dbcbb1: TDBComboBox
-      Left = 6
-      Top = 38
-      Width = 145
-      Height = 21
-      TabOrder = 1
-    end
-    object dbcbb2: TDBComboBox
-      Left = 161
-      Top = 38
-      Width = 145
-      Height = 21
-      TabOrder = 2
     end
     object btnExecutar: TButton
       Left = 557
@@ -203,14 +207,16 @@ object Controle: TControle
       Width = 240
       Height = 33
       Caption = 'Executar'
-      TabOrder = 3
+      TabOrder = 1
+      OnClick = btnExecutarClick
     end
   end
   object dbgrd1: TDBGrid
-    Left = 0
+    Left = -4
     Top = 207
     Width = 801
     Height = 154
+    DataSource = DataSource
     TabOrder = 3
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -220,6 +226,44 @@ object Controle: TControle
     Columns = <
       item
         Expanded = False
+        FieldName = 'Codigo'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Descricao'
+        Width = 183
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Unidade'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Fornecedor'
+        Width = 262
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Data'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Quantidade'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Unitario'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Total'
         Visible = True
       end>
   end
@@ -248,6 +292,8 @@ object Controle: TControle
       Top = 16
       Width = 121
       Height = 21
+      DataField = 'EstoqueQtd'
+      DataSource = DataSource
       TabOrder = 0
     end
     object dbedtValor: TDBEdit
@@ -255,13 +301,52 @@ object Controle: TControle
       Top = 16
       Width = 121
       Height = 21
+      DataField = 'EstoqueVlr'
+      DataSource = DataSource
       TabOrder = 1
     end
+  end
+  object cbAcao: TComboBox
+    Left = 157
+    Top = 165
+    Width = 145
+    Height = 21
+    ItemIndex = 0
+    TabOrder = 5
+    Text = 'Indexar'
+    OnChange = cbAcaoChange
+    Items.Strings = (
+      'Indexar'
+      'Locate'
+      'FindKey'
+      'Limpar'
+      'Percorrer'
+      'Filtrar'
+      'Limpar Filtro')
+  end
+  object cbCampo: TComboBox
+    Left = 6
+    Top = 165
+    Width = 145
+    Height = 21
+    ItemIndex = 0
+    TabOrder = 6
+    Text = 'Codigo'
+    Items.Strings = (
+      'Codigo'
+      'Descricao'
+      'Unidade'
+      'Fornecedor'
+      'Data'
+      'Quantidade'
+      'Unitario'
+      'Total')
   end
   object dsClienteDataSet: TClientDataSet
     Aggregates = <>
     AggregatesActive = True
     Params = <>
+    BeforePost = dsClienteDataSetBeforePost
     OnCalcFields = dsClienteDataSetCalcFields
     Left = 328
     Top = 248
@@ -313,5 +398,11 @@ object Controle: TControle
     DataSet = dsClienteDataSet
     Left = 400
     Top = 248
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 20
+    Top = 5
   end
 end
