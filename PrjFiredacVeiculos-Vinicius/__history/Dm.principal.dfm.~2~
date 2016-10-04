@@ -1,0 +1,24 @@
+object DataModule2: TDataModule2
+  OldCreateOrder = False
+  Height = 293
+  Width = 423
+  object FDConnection: TFDConnection
+    Params.Strings = (
+      'Database=C:\LP2\horus-lp2\PrjFiredacVeiculos\dados\DADOS.FDB'
+      'User_Name=SYSDBA'
+      'Password=masterkey'
+      'DriverID=FB')
+    LoginPrompt = False
+    Left = 40
+    Top = 40
+  end
+  object FDPhysFBDriverLink: TFDPhysFBDriverLink
+    Left = 192
+    Top = 32
+  end
+  object FDGUIxWaitCursor: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 200
+    Top = 104
+  end
+end
